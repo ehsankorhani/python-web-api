@@ -5,16 +5,17 @@ In this series I'm going to explore exposing and consuming REST APIs along with 
 ### Required libraries
 
 I will be using these libraries:
-* Flask - a micro web framework.
-* ...
-* Venv - creating lightweight virtual environments.
+* **flask** - a micro web framework.
+* **requests** - allows sending HTTP requests.
+* **venv** - creating lightweight virtual environments.
 
 <br>
 
 ## Table of Contents
 
 0. Installation
-
+1. Resources
+2. Requests
 
 <br>
 
@@ -41,7 +42,7 @@ $ source api_env/bin/activate
 From the provided file:
 
 ```bash
-$ pip install -r requirements.txt
+$ pip install -r requirements.txt # list of any module required for the project
 ```
 
 Check for installed packages with:
@@ -54,27 +55,18 @@ $ pip list
 
 ### Initialize the App
 
-Create the ```main.py``` file which is the main entry point to the program.
+Create a file called ```main.py```. This is the main entry point to the program.
 
-The main modules to import are:
+Add this code to ```main.py```:
 
 ```py
 from flask import Flask
-from flask_restful import Api, Resource
-```
 
-Create the app withing flask:
-
-```py
 app = Flask(__name__)
-api = Api(app)
-```
+app.config["DEBUG"] = True # in Prod env run with debug=False
 
-and run it:
-
-```py
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 ```
 
 In Prod environment run with ```debug=False```.
@@ -107,6 +99,6 @@ And the app will be accessible from browser (or any api client) from:<br>
 
 <br>
 
-#### Reference
+#### References
 
 * [Python REST API Tutorial - Building a Flask REST API](https://www.youtube.com/watch?v=GMppyAPbLYk)
